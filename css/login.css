@@ -1,0 +1,9 @@
+body {
+    background-color: white;
+    z-index: 2
+}
+
+.page-header {
+    color: black;
+}
+

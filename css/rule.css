@@ -1,0 +1,200 @@
+/* Variables */
+/* Styles */
+* {
+    box-sizing: border-box;
+}
+body, .block > div, .details a.follow strong {
+    margin: 0;
+    padding: 0;
+}
+html, body {
+    min-height: 100%;
+}
+body {
+    font-family: Sans-Serif;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    line-height: 1.4;
+    color: #808080;
+}
+h1 {
+    font-weight: 700;
+    font-size: 24px;
+    color: black;
+    padding: 15px 15px 0;
+    margin: 0;
+}
+.block {
+    max-width: 700px;
+    width: 100%;
+    height: 100%;
+    float: left;
+    padding: 15px;
+    z-index: 10;
+    background-color: white;
+    overflow: hidden;
+}
+@media screen and (max-width: 599px) {
+    .block {
+        max-width: 100%;
+   }
+}
+.block > div {
+    display: block;
+    position: relative;
+    padding: 0 0 0 35px;
+    color: black;
+}
+.block > div:not(:last-of-type) {
+    margin: 0 0 10px;
+}
+.block > div:nth-child(1):before {
+    content: "1";
+    width: 20px;
+    font-weight: bold;
+    text-align: center;
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: 15px 7.5px;
+    border-right: 1px solid rgba(128, 128, 128, 0.25);
+    margin: 0;
+    color: black;
+}
+.block > div:nth-child(2):before {
+    content: "2";
+    width: 20px;
+    font-weight: bold;
+    text-align: center;
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: 15px 7.5px;
+    border-right: 1px solid rgba(128, 128, 128, 0.25);
+    margin: 0;
+    color: black;
+}
+.block > div:nth-child(3):before {
+    content: "3";
+    width: 20px;
+    font-weight: bold;
+    text-align: center;
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: 15px 7.5px;
+    border-right: 1px solid rgba(128, 128, 128, 0.25);
+    margin: 0;
+    color: black;
+}
+.block > div:nth-child(4):before {
+    content: "4";
+    width: 20px;
+    font-weight: bold;
+    text-align: center;
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: 15px 7.5px;
+    border-right: 1px solid rgba(128, 128, 128, 0.25);
+    margin: 0;
+    color: black;
+}
+.block > div:nth-child(5):before {
+    content: "5";
+    width: 20px;
+    font-weight: bold;
+    text-align: center;
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: 15px 7.5px;
+    border-right: 1px solid rgba(128, 128, 128, 0.25);
+    margin: 0;
+    color: black;
+}
+.block > div input + label {
+    cursor: pointer;
+    display: block;
+    padding: 15px 15px;
+    transition: all 0.25s ease-in-out 0.5s, color 0.25s ease-in-out 0.5s;
+    color: black;
+}
+.block > div input ~ div {
+    visibility: hidden;
+    max-height: 0;
+    opacity: 0;
+    transition: all 0.5s ease-in-out 0.2s, opacity 0.25s ease-in-out 0.25s, padding 0s ease-in-out 0s;
+    width: calc(100% + 35px);
+    margin-left: -35px;
+}
+.block > div input ~ div p {
+    padding: 15px;
+    border-top: 1px solid rgba(128, 128, 128, 0.25);
+}
+.block > div input:checked + label {
+    transition: background-color 0s ease-in-out 0s;
+    color: black;
+}
+.block > div input:checked ~ div {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+    max-height: 200px;
+    transition: all 0.5s ease-in-out 0.2s, opacity 0.25s ease-in-out 0.5s, padding 0s ease-in-out 0s;
+}
+.details {
+    width: calc(100% - 30px);
+    float: right;
+    margin: 15px;
+    padding: 15px;
+    background-color: transparent;
+}
+@media screen and (max-width: 599px) {
+    .details {
+        float: left;
+        width: calc(100% - 30px);
+        margin: 15px;
+   }
+}
+.details * {
+    display: inline-block;
+    margin: 7.5px 0;
+    line-height: 20px;
+    color: black;
+}
+.details h1 {
+    font-size: 36px;
+    font-weight: bold;
+    line-height: 40px;
+    padding: 0;
+    margin: 0;
+    clear: both;
+    color: black;
+}
+.details a {
+    clear: both;
+    font-family: "FontAwesome", Sans-Serif;
+    font-size: 14px;
+    text-decoration: none;
+}
+.details a.follow {
+    float: left;
+    font-weight: bold;
+    background-color: #333;
+    margin: 15px 0 0;
+    padding: 7.5px 15px;
+    cursor: pointer;
+}
+.details a.follow:before {
+    margin: 0 7.5px 0 0;
+}
+.details a.follow strong {
+    color: #9cf;
+}
+.details a.follow:hover {
+    background-color: #66b3ff;
+}
+.details a.follow:hover strong {
+    color: #4d4d4d;
+}

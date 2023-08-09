@@ -1,0 +1,311 @@
+/* footer */
+:root {
+    --light-grey: #eeeeee;
+    --border: 1px solid var(--light-grey);
+  }
+
+div .footers {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+  }
+  footer {
+    border-top: #2b262c;
+    background: white;
+    padding: 0px 0 2px;
+    color: #282828;
+    font-size: 13px;
+    line-height: 20px;
+    width: 100%;
+    bottom: 0;
+    border-top: var(--border);
+  }
+  
+  footer .row {
+    padding-bottom: 50px;
+    /* background-color: red; */
+    width: 85%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+  
+  footer .row .col {
+    flex-basis: 25%;
+    padding: 40px;
+    /* background-color: rebeccapurple; */
+  }
+  
+  footer .row .col1 {
+    /* overflow: hidden; */
+    /* background-color: aqua; */
+    /* font-size: 24px; */
+    margin-left: 10px;
+    margin-bottom: 49px;
+    line-height: 10px;
+  }
+  
+  footer .row .col1 img {
+    margin-bottom: 25px;
+  }
+  
+  footer .row .col1 h1 {
+    letter-spacing: 7px;
+    line-height: 6px;
+  }
+  
+  footer .row .col1 p {
+    /* background-color: rebeccapurple; */
+    line-height: 40px;
+    font-size: 32px;
+    /* height: 2px; */
+    width: 340px;
+  }
+  
+  footer .row .col2 {
+    /* background-color: blueviolet; */
+    /* font-size: 20px; */
+    margin-left: 20px;
+    margin-top: 1rem;
+    /* padding-bottom: 20px; */
+  }
+  
+  footer .row .col2 ul {
+    font-size: 17px;
+    line-height: 32px;
+    margin: 0 10px 50px 10px;
+  }
+  
+  footer .row .col2 .social {
+    cursor: pointer;
+    margin-left: -90px;
+    text-align: center;
+    color: #282828;
+    /* background-color: #296; */
+    font-size: 20px;
+    width: 100%;
+    letter-spacing: 30px;
+  }
+  footer .row .col2 .social i:hover {
+    color: #5297f7;
+  }
+  
+  footer .row .col3 {
+    /* align-items: flex-start; */
+    /* background-color: #296; */
+    position: relative;
+    text-align: start;
+  }
+  footer .row .col3 h3 {
+    height: 80px;
+    width: 280px;
+    top: -10px;
+    left: -7px;
+    /* background-color: red; */
+    /* text-indent: -20px; */
+    /* max-lines: 2; */
+  }
+  
+  footer .row .col3 input {
+    width: 80%;
+    background: transparent;
+    color: #282828;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    box-shadow: none;
+    letter-spacing: 0.1em;
+    padding: 10px 0 5px;
+    left: 0;
+    border-bottom: #282828 2px solid;
+  }
+  
+  footer .row .col3 span {
+    /* background-color: rebeccapurple; */
+    position: absolute;
+    left: 40px;
+    padding: 5px 0 15px;
+    color: #282828;
+    text-transform: uppercase;
+    pointer-events: none;
+    letter-spacing: 0.1em;
+    transition: 0.5s;
+  }
+  
+  footer .row .col3 button {
+    margin-top: 20px;
+    background: transparent;
+    border: 1px solid #282828;
+    color: #282828;
+    border-radius: 7px;
+    padding: 15px 45px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  footer .row .col3 button:hover {
+    border: 1px solid #5297f7;
+  }
+  
+  /* footer .row .col3 input:valid ~ span, */
+  footer .row .col3 input:focus ~ span {
+    transform: translateY(-16px);
+    font-size: 1em;
+  }
+  footer .row .col3 input:focus ~ input {
+    border-bottom: black 2px solid;
+  }
+  
+  footer .row .col .logo {
+    color: #296;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 40px;
+    text-decoration: none;
+    font-size: 2em;
+  }
+  
+  footer .row .col h3 {
+    font-size: 1.2em;
+    text-transform: capitalize;
+    position: relative;
+    margin-bottom: 40px;
+    letter-spacing: 2px;
+  }
+  
+  footer .row .col h3::after {
+    content: "";
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 30px;
+    height: 8px;
+    /* background: #298; */
+  }
+  
+  footer .row .col li {
+    list-style: none;
+    margin-bottom: 12px;
+  }
+  
+  footer .row .col li a {
+    text-decoration: none;
+    text-transform: capitalize;
+    color: #282828;
+    transition: 0.4s;
+  }
+  
+  footer .row .col li a:hover {
+    /* color: #298;b */
+    border-bottom: #5297f7 3px solid;
+    padding-left: 3px;
+  }
+  
+  footer .footer-wrap {
+    background-color: #1d2228;
+    height: 56px;
+    bottom: 0;
+    width: 100vw;
+    text-align: center;
+    padding: 6px 6px 6px 6px;
+  }
+  footer .footer-wrap i {
+    color: yellow;
+  }
+  
+  footer .footer-wrap span {
+    color: black;
+  }
+  
+  footer .footer-wrap p {
+    color: #606368;
+    font-size: 16px;
+    letter-spacing: 0.24px;
+    /* line-height: 0.24px; */
+  }
+  
+  @media screen and (max-width: 800px) {
+    footer {
+      position: unset;
+      /* padding: 50px 0 2px; */
+    }
+    footer .row .col {
+      flex-basis: 100%;
+      padding: 0;
+    }
+  
+    footer .footer-wrap p {
+      font-size: 10px;
+    }
+  
+    footer .row .col2 ul {
+      margin-left: 20px;
+      /* margin: 0 20px 10px 20px; */
+      display: grid;
+      /* margin: 0 10px 20px 10px; */
+      grid-template-columns: 1fr 2fr;
+      line-height: 20px;
+      gap: 15px;
+      /* width: 100%; */
+      /* background-color: #296; */
+      /* height: 100px; */
+    }
+  
+    footer .row .col2 {
+      margin-left: -10px;
+      /* order: inherit; */
+      /* width: 223px; */
+      /* background-color: #296;    */
+      /* margin-right: 500px;  */
+    }
+  
+    footer .row .col2 .social {
+      margin-left: -180px;
+      letter-spacing: 18px;
+      /* width: 100%; */
+      margin-bottom: 30px;
+      /* background-color: rebeccapurple; */
+    }
+  
+    footer .row .col3 {
+      line-height: 20px;
+      margin-left: 20px;
+    }
+  
+    footer .row .col3 input {
+      width: 85%;
+      padding: 10px 0 5px;
+      margin-left: -10px;
+    }
+  
+    footer .row .col3 button {
+      margin-left: -10px;
+    }
+  
+    footer .row .col3 span {
+      left: 1px;
+    }
+  
+    footer .row .col3 h3 {
+      left: -8px;
+    }
+  }
+  
+  @media screen and (max-width: 550px) {
+    footer .row .col2 .social {
+      margin-left: -100px;
+  
+      /* background-color: rebeccapurple; */
+    }
+    footer .row .col1 p {
+      /* background-color: rebeccapurple; */
+      line-height: 40px;
+      font-size: 32px;
+      /* height: 2px; */
+      width: 280px;
+    }
+  }
