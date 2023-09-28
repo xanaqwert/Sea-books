@@ -4,30 +4,134 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Webpage</title>
-    <link rel="stylesheet" type="text/css" href="css/organisation.css">
-    <link rel="stylesheet" type="text/css" href="css/navbar.css">
-    <link rel="stylesheet" href="styles.css">
-    <script src="script.js"></script>
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="css/navbar2.css">
+    <link rel="stylesheet" href="css/organisation.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script type="text/javascript" src="flickity/flickity.js"></script>
 </head>
 
 <body>
-    <!-- <div class="navbar-container">
-        <nav class="navbar">
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About</a>
-                    <ul class="submenu">
-                        <li><a href="#">Submenu 1</a></li>
-                        <li><a href="#">Submenu 2</a></li>
-                        <li><a href="#">Submenu 3</a></li>
+    <!-- header -->
+    <header id="nav-menu" aria-label="navigation bar">
+        <div class="container-navbar">
+            <div class="nav-start">
+                <a class="logo" href="/">
+                    <img src="https://i.ibb.co/brcd6Jd/sea-books-logo-modified.png" width="45" height="45" alt="Inc Logo" />
+                </a>
+                <nav class="menu">
+                    <ul class="menu-bar">
+                        <li>
+                            <a href="index.php" class="nav-link dropdown-btn" style="font-size: 20px;">
+                                Beranda
+                            </a>
+                        <li>
+                            <button class="nav-link dropdown-btn" data-dropdown="dropdown2" aria-haspopup="true" aria-expanded="false" aria-label="discover" style="font-size: 20px;">
+                                Profil
+                                <i class="bx bx-chevron-down" aria-hidden="true"></i>
+                            </button>
+                            <div id="dropdown2" class="dropdown">
+                                <ul role="menu" style="font-size: 13px;">
+                                    <li>
+                                        <span class="dropdown-link-title">Sub Menu</span>
+                                    </li>
+                                    <li role="menuitem">
+                                        <a class="dropdown-link" href="../Sea-Books-LSP/organisation.php">Struktur Organisasi</a>
+                                    </li>
+                                    <li role="menuitem">
+                                        <a class="dropdown-link" href="../Sea-Books-LSP/rule.php">Panduan Perpustakaan</a>
+                                    </li>
+                                </ul>
+                                <ul role="menu" style="font-size: 13px;">
+                                    <li>
+                                        <span class="dropdown-link-title">Keterangan</span>
+                                    </li>
+                                    <li role="menuitem">
+                                        <a class="dropdown-link" href="../Sea-Books-LSP/tata-tertib.php">Tata Tertib</a>
+                                    </li>
+                                    <li role="menuitem">
+                                        <a class="dropdown-link" href="../Sea-Books-LSP/faq.php">FAQ</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li>
+                            <button class="nav-link dropdown-btn" data-dropdown="dropdown1" aria-haspopup="true" aria-expanded="false" aria-label="browse" style="font-size: 20px;">
+                                Kategori
+                                <i class="bx bx-chevron-down" aria-hidden="true"></i>
+                            </button>
+                            <div id="dropdown1" class="dropdown">
+                                <ul role="menu" style="font-size: 13px;">
+                                    <li class="dropdown-title">
+                                        <span class="dropdown-link-title">Kategori Buku</span>
+                                    </li>
+                                    <li role="menuitem">
+                                        <a class="dropdown-link" href="#">
+                                            Buku Pelarajan
+                                        </a>
+                                    </li>
+                                    <li role="menuitem">
+                                        <a class="dropdown-link" href="#">
+                                            Buku Fiksi
+                                        </a>
+                                    </li>
+                                    <li role="menuitem">
+                                        <a class="dropdown-link" href="#">
+                                            Buku Biografi
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li>
+                            <button class="nav-link dropdown-btn" data-dropdown="dropdown0" aria-haspopup="true" aria-expanded="false" aria-label="browse" style="font-size: 20px;">
+                                Aktifitas
+                                <i class="bx bx-chevron-down" aria-hidden="true"></i>
+                            </button>
+                            <div id="dropdown0" class="dropdown">
+                                <ul role="menu" style="font-size: 13px;">
+                                    <li class="dropdown-title">
+                                        <span class="dropdown-link-title">Kategori Buku</span>
+                                    </li>
+                                    <li role="menuitem">
+                                        <a class="dropdown-link" href="../Sea-Books-LSP/gallery.html">
+                                            Geleri
+                                        </a>
+                                    </li>
+                                    <li role="menuitem">
+                                        <a class="dropdown-link" href="#">
+                                            Berita
+                                        </a>
+                                    </li>
+                                    <li role="menuitem">
+                                        <a class="dropdown-link" href="#">
+                                            Pengumuman
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
                     </ul>
-                </li>
-                <li><a href="#">Services</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-        </nav>
-    </div> -->
+                </nav>
+            </div>
+
+            <div class="nav-end">
+                <div class="right-container">
+                    <form class="search" role="search">
+                        <input type="search" name="search" placeholder="Search" />
+                        <i class="bx bx-search" aria-hidden="true"></i>
+                    </form>
+                    <a href="../Sea-Books-LSP/login.php">
+                        <img src="https://i.ibb.co/D8Gphx6/image-login.png" width="45" height="45" alt="user image" />
+                    </a>
+                </div>
+
+                <button id="hamburger" aria-label="hamburger" aria-haspopup="true" aria-expanded="false">
+                    <i class="bx bx-menu" aria-hidden="true"></i>
+                </button>
+            </div>
+        </div>
+    </header>
 
     <main>
         <div class="container">
@@ -57,6 +161,15 @@
             </div>
         </div>
     </main>
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/bootstrap.js"></script>
+    <script type="text/javascript" src="js/sweetalert.min.js"> </script>
+    <script type="text/javascript" src="js/script.js"></script>
+    <?php if (isset($alert_user)) { ?>
+        <script type="text/javascript">
+            swal("Oops...", "You are not allowed to view this page directly...!", "error");
+        </script>
+    <?php } ?>
 </body>
 
 </html>

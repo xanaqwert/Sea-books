@@ -106,16 +106,16 @@ if (isset($_POST['del'])) {
 				<nav class="menu">
 					<ul class="menu-bar">
 						<li>
-							<button class="nav-link dropdown-btn">
+							<a href="index.php" class="nav-link dropdown-btn" style="font-size: 20px;">
 								Beranda
-							</button>
+							</a>
 						<li>
-							<button class="nav-link dropdown-btn" data-dropdown="dropdown2" aria-haspopup="true" aria-expanded="false" aria-label="discover">
+							<button class="nav-link dropdown-btn" data-dropdown="dropdown2" aria-haspopup="true" aria-expanded="false" aria-label="discover" style="font-size: 20px;">
 								Profil
 								<i class="bx bx-chevron-down" aria-hidden="true"></i>
 							</button>
 							<div id="dropdown2" class="dropdown">
-								<ul role="menu">
+								<ul role="menu" style="font-size: 13px;">
 									<li>
 										<span class="dropdown-link-title">Sub Menu</span>
 									</li>
@@ -126,7 +126,7 @@ if (isset($_POST['del'])) {
 										<a class="dropdown-link" href="../Sea-Books-LSP/rule.php">Panduan Perpustakaan</a>
 									</li>
 								</ul>
-								<ul role="menu">
+								<ul role="menu" style="font-size: 13px;">
 									<li>
 										<span class="dropdown-link-title">Keterangan</span>
 									</li>
@@ -140,12 +140,12 @@ if (isset($_POST['del'])) {
 							</div>
 						</li>
 						<li>
-							<button class="nav-link dropdown-btn" data-dropdown="dropdown1" aria-haspopup="true" aria-expanded="false" aria-label="browse">
+							<button class="nav-link dropdown-btn" data-dropdown="dropdown1" aria-haspopup="true" aria-expanded="false" aria-label="browse" style="font-size: 20px;">
 								Kategori
 								<i class="bx bx-chevron-down" aria-hidden="true"></i>
 							</button>
 							<div id="dropdown1" class="dropdown">
-								<ul role="menu">
+								<ul role="menu" style="font-size: 13px;">
 									<li class="dropdown-title">
 										<span class="dropdown-link-title">Kategori Buku</span>
 									</li>
@@ -168,12 +168,12 @@ if (isset($_POST['del'])) {
 							</div>
 						</li>
 						<li>
-							<button class="nav-link dropdown-btn" data-dropdown="dropdown0" aria-haspopup="true" aria-expanded="false" aria-label="browse">
+							<button class="nav-link dropdown-btn" data-dropdown="dropdown0" aria-haspopup="true" aria-expanded="false" aria-label="browse" style="font-size: 20px;">
 								Aktifitas
 								<i class="bx bx-chevron-down" aria-hidden="true"></i>
 							</button>
 							<div id="dropdown0" class="dropdown">
-								<ul role="menu">
+								<ul role="menu" style="font-size: 13px;">
 									<li class="dropdown-title">
 										<span class="dropdown-link-title">Kategori Buku</span>
 									</li>
@@ -218,7 +218,7 @@ if (isset($_POST['del'])) {
 	</header>
 
 	<div class="container-fluid slide">
-		<h4 class="center-block" style="color:#282828">Welcome To <span style="color:#5297f7;font-size:45px;font-weight:405;">Sea-Books</span></h4>
+		<h4 class="center-block" style="color:#282828">Selamat Datang Di <span style="color:#5297f7;font-size:45px;font-weight:405;">Sea-Books</span></h4>
 		<div class="slider">
 			<!-- <h1>Flickity - wrapAround</h1> -->
 
@@ -246,19 +246,14 @@ if (isset($_POST['del'])) {
 					</div>
 					<main>
 			</div>
-
-
-
-
 		</div>
 	</div>
 
 	<!-- Pemberitahuan -->
 	<div class="container slide2">
-
 		<div class="panel-heading">
 			<div class="row">
-				<h3 class="center-block" style="font-size: 30px;">Published Announcements</h3>
+				<h3 class="center-block" style="font-size: 30px;">Pengumuman Terbaru</h3>
 			</div>
 		</div>
 		<table class="table table-bordered" style="font-size: 18px;">
@@ -285,7 +280,7 @@ if (isset($_POST['del'])) {
 	</div>
 
 
-	<div class="footers">
+	<div class="footers" style="margin-top: 5rem;">
 		<footer>
 			<div class="row">
 				<div class="col col1" data-aos="fade-right">

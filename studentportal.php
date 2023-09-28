@@ -59,7 +59,7 @@
 			<div class="pdf-list d-flex flex-wrap">
 				<div class="card m-1" style="width:18rem;">
 					<img src="https://i.pinimg.com/originals/a8/91/d9/a891d9ddd8472c3fd84bf85a80693ac9.jpg" class="card-img-top">
-					<div class="card-body">	
+					<div class="card-body">
 						<h5 class="card-title">
 							Naruto
 						</h5>
@@ -82,18 +82,18 @@
 				<!-- List of categories -->
 				<div class="list-group">
 
-						<a href="#" class="list-group-item list-group-item-action active">Category</a>
+					<a href="#" class="list-group-item list-group-item-action active">Category</a>
 
-							<a href="category.php?id=<?= $category['id'] ?>" class="list-group-item list-group-item-action">
-								action</a>
+					<a href="category.php?id=<?= $category['id'] ?>" class="list-group-item list-group-item-action">
+						action</a>
 				</div>
 
 				<!-- List of authors -->
 				<div class="list-group mt-5">
 
-						<a href="#" class="list-group-item list-group-item-action active">Author</a>
-							<a href="author.php?id=<?= $author['id'] ?>" class="list-group-item list-group-item-action">
-								masashi kishimoto</a>
+					<a href="#" class="list-group-item list-group-item-action active">Author</a>
+					<a href="author.php?id=<?= $author['id'] ?>" class="list-group-item list-group-item-action">
+						masashi kishimoto</a>
 				</div>
 			</div>
 		</div>
