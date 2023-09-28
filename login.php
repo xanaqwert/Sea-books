@@ -210,8 +210,8 @@ if (isset($_POST['submit'])) {
 						</div>
 					</div>
 					<div class="form-group">
-						<div class="col-sm-offset-2 col-sm-10" style="padding-top: 5px;">
-							<button type="submit" class="btn btn-primary btn-lg" style="height: 35px; width:100px; font-size:15px">Sign In</button>
+						<div class="col-sm-offset-2 col-sm-8">
+							<input type="submit" class="btn btn-info col-lg-4" style="background-color:#5297F7" name="submit" value="Sign In">
 						</div>
 					</div>
 				</form>
