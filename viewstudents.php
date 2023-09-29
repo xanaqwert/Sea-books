@@ -75,16 +75,16 @@ if (isset($_POST['submit'])) {
 			<table class="table table-bordered">
 				<thead>
 					<tr>
-						<th>ID</th>
-						<th>Student Name</th>
-						<th>Matric No</th>
+						<th>Nomor</th>
+						<th>Nama Murid/Guru</th>
+						<th>ID Anggota</th>
 						<th>Email</th>
-						<th>Department</th>
-						<th>Phone No.</th>
+						<th>Jurusan</th>
+						<th>No Telp</th>
 
 						<th>Username</th>
 						<th>Password</th>
-						<th>Action1</th>
+						<th>Hapus</th>
 					</tr>
 				</thead>
 				<?php

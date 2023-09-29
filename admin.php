@@ -93,13 +93,14 @@ if (isset($_POST['del'])) {
 </head>
 
 <body>
+	<?php include "includes/nav.php"; ?>
+	<!-- navbar ends -->
 	<div class="container">
-		<?php include "includes/nav.php"; ?>
-		<!-- navbar ends -->
+
 		<!-- info alert -->
 		<div class="alert alert-warning col-lg-7 col-md-12 col-sm-12 col-xs-12 col-lg-offset-2 col-md-offset-0 col-sm-offset-1 col-xs-offset-0" style="margin-top:70px">
 
-			<h4 class="center-block" style="color:#5297F7"><strong> Welcome</strong> <span>
+			<h4 class="center-block" style="color:black">Selamat Datang Kembali <span style="color: #2b72fb">
 					<?php echo $admin; ?></span> </h4>
 		</div>
 
@@ -111,13 +112,13 @@ if (isset($_POST['del'])) {
 			<?php if (isset($error) === true) { ?>
 				<div class="alert alert-success alert-dismissable">
 					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-					<strong>Record Updated Successfully!</strong>
+					<strong>Pengumuman Diperbarui!</strong>
 				</div>
 			<?php } ?>
 			<!-- Default panel contents -->
 			<div class="panel-heading">
 				<div class="row">
-					<h3 class="center-block">Published Announcements</h3>
+					<h3 class="center-block">Pengumuman Terbaru</h3>
 				</div>
 			</div>
 			<table class="table table-bordered">
@@ -125,10 +126,10 @@ if (isset($_POST['del'])) {
 
 				<thead>
 					<tr>
-						<th>NewsId</th>
-						<th>Announcement</th>
+						<th>Nomor</th>
+						<th>Pengumuman</th>
 
-						<th>Delete</th>
+						<th>Hapus</th>
 					</tr>
 				</thead>
 

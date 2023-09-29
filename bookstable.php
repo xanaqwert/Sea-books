@@ -3,13 +3,8 @@ require 'includes/snippet.php';
 require 'includes/db-inc.php';
 include "includes/header.php";
 
-
-
-
 if (isset($_POST['del'])) {
-
 	$id = sanitize(trim($_POST['id']));
-
 	$sql_del = "DELETE from books where BookId = $id";
 	$error = false;
 	$result = mysqli_query($conn, $sql_del);
@@ -18,8 +13,34 @@ if (isset($_POST['del'])) {
 	}
 }
 
+if (isset($_POST['update'])) {
+	$id = sanitize(trim($_POST['id']));
+	$title = sanitize(trim($_POST['title']));
+	$author = sanitize(trim($_POST['author']));
+	$label = sanitize(trim($_POST['label']));
+	$bookCopies = sanitize(trim($_POST['bookCopies']));
+	$publisher = sanitize(trim($_POST['publisher']));
+	$select = sanitize(trim($_POST['select']));
+	$category = sanitize(trim($_POST['category']));
+	$call = sanitize(trim($_POST['call']));
 
+	$sql_update = "UPDATE books SET 
+        bookTitle = '$title',
+        author = '$author',
+        ISBN = '$label',
+        bookCopies = '$bookCopies',
+        publisherName = '$publisher',
+        available = '$select',
+        categories = '$category',
+        callNumber = '$call'
+        WHERE BookId = $id";
 
+	$query_update = mysqli_query($conn, $sql_update);
+
+	if ($query_update) {
+		$error = true; // You can use this to display a success message.
+	}
+}
 
 ?>
 
@@ -51,12 +72,16 @@ if (isset($_POST['del'])) {
 		<div class="" id="panel-default">
 			<!-- Default panel contents -->
 			<div class="panel-heading">
-				<?php if (isset($error) === true) { ?>
+				<?php
+				if (isset($error) === true) {
+				?>
 					<div class="alert alert-success alert-dismissable">
 						<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-						<strong>Record Deleted Successfully!</strong>
+						<strong><?php echo isset($_POST['del']) ? 'Record Deleted Successfully!' : 'Record Updated Successfully!'; ?></strong>
 					</div>
-				<?php } ?>
+				<?php
+				}
+				?>
 				<div class="row">
 					<a href="addbook.php"><button class="btn btn-success col-lg-3 col-md-4 col-sm-11 col-xs-11 button" style="margin-left: 15px;margin-bottom: 5px; font-size:15px;"><span class="glyphicon glyphicon-plus-sign"></span> Tambah Buku</button></a>
 					<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 pull-right">
@@ -78,16 +103,17 @@ if (isset($_POST['del'])) {
 
 				<thead>
 					<tr>
-						<th>BookId</th>
-						<th>bookTitle</th>
-						<th>author</th>
-						<th>ISBN</th>
-						<th>bookCopies</th>
-						<th>publisherName</th>
-						<th>available</th>
-						<th>categories</th>
-						<th>callNumber</th>
-						<th>Delete</th>
+						<th>Nomor</th>
+						<th>Judul Buku</th>
+						<th>Penulis</th>
+						<th>Tanggal Terbit</th>
+						<th>Buku Tersisa</th>
+						<th>Nama Penerbit</th>
+						<th>Tersedia</th>
+						<th>Kategori</th>
+						<th>ID Buku</th>
+						<th>Hapus</th>
+						<th>Edit</th>
 					</tr>
 				</thead>
 

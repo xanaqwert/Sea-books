@@ -40,42 +40,42 @@ $sql = "INSERT INTO books(bookTitle, author, ISBN, bookCopies, publisherName, av
     <div class="container  col-lg-9 col-md-11 col-sm-12 col-xs-12 col-lg-offset-2 col-md-offset-1 col-sm-offset-0 col-xs-offset-0  " style="margin-top: 20px">
         <div class="jumbotron login2 col-lg-10 col-md-11 col-sm-12 col-xs-12">
        
-            <p class="page-header" style="text-align: center">ADD BOOK</p>
+            <p class="page-header" style="text-align: center">Tambah Buku</p>
 
             <div class="container">
                 <form class="form-horizontal" role="form" enctype="multipart/form-data" action="addbook.php" method="post">
                     <div class="form-group">
-                        <label for="Title" class="col-sm-2 control-label">BOOK TITLE</label>
+                        <label for="Title" class="col-sm-2 control-label">Judul Buku</label>
                         <div class="col-sm-10">
                             <input type="text" class="form-control" name="title" placeholder="Enter Title" id="password" required>
                         </div>      
                     </div>
                     <div class="form-group">
-                        <label for="Author" class="col-sm-2 control-label">AUTHOR</label>
+                        <label for="Author" class="col-sm-2 control-label">Penulis</label>
                         <div class="col-sm-10">
                             <input type="text" class="form-control" name="author" placeholder="Enter Author" id="password" required>
                         </div>      
                     </div>
                     <div class="form-group">
-                        <label for="ISBN" class="col-sm-2 control-label">ISBN</label>
+                        <label for="ISBN" class="col-sm-2 control-label">Tanggal Terbit</label>
                         <div class="col-sm-10">
                             <input type="text" class="form-control" name="label" placeholder="Enter ISBN" id="password" required>
                         </div>      
                     </div>
                     <div class="form-group">
-                        <label for="Book Copies" class="col-sm-2 control-label">BOOK COPIES</label>
+                        <label for="Book Copies" class="col-sm-2 control-label">Buku Tersisa</label>
                         <div class="col-sm-10">
                             <input type="text" class="form-control" name="bookCopies" placeholder="Enter BOOK COPIES" id="password" required>
                         </div>      
                     </div>
                     <div class="form-group">
-                        <label for="Publisher" class="col-sm-2 control-label">PUBLISHER</label>
+                        <label for="Publisher" class="col-sm-2 control-label">Nama Penerbit</label>
                         <div class="col-sm-10">
                             <input type="text" class="form-control" name="publisher" placeholder="Enter Publisher" id="password" required>
                         </div>      
                     </div>
                     <div class="form-group">
-                        <label for="Password" class="col-sm-2 control-label">AVAILABLE</label>
+                        <label for="Password" class="col-sm-2 control-label">Tersedia</label>
                         <div class="col-sm-10">
                           <select custom-select custom-select-lg name="select" required>
                             <option>SELECT</option>
@@ -85,13 +85,13 @@ $sql = "INSERT INTO books(bookTitle, author, ISBN, bookCopies, publisherName, av
                         </div>      
                     </div>
                     <div class="form-group">
-                        <label for="Publisher" class="col-sm-2 control-label">CATEGORY</label>
+                        <label for="Publisher" class="col-sm-2 control-label">Kategori</label>
                         <div class="col-sm-10">
                             <input type="text" class="form-control" name="category" placeholder="Enter Category" id="password" required>
                         </div>      
                     </div>
                     <div class="form-group">
-                        <label for="Publisher" class="col-sm-2 control-label">CALL NUMBER</label>
+                        <label for="Publisher" class="col-sm-2 control-label">ID Buku</label>
                         <div class="col-sm-10">
                             <input type="text" class="form-control" name="call" placeholder="Enter Phone number" id="password" required>
                         </div>      
@@ -99,8 +99,8 @@ $sql = "INSERT INTO books(bookTitle, author, ISBN, bookCopies, publisherName, av
                     
                     <div class="form-group">
                         <div class="col-sm-offset-2 col-sm-10">
-                            <button  name="submit" class="btn btn-info col-lg-12" data-toggle="modal" data-target="#info">
-                                ADD BOOK
+                            <button  name="submit" class="btn btn-info col-lg-12" data-toggle="modal" data-target="#info" style="font-size:15px;">
+                                Tambah Buku
                             </button>
                             
                         </div>
