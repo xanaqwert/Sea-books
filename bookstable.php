@@ -13,34 +13,60 @@ if (isset($_POST['del'])) {
 	}
 }
 
+$updated = false; // Initialize the variable to track if the update was successful
+
 if (isset($_POST['update'])) {
-	$id = sanitize(trim($_POST['id']));
+	$bookId = sanitize(trim($_POST['bookId']));
 	$title = sanitize(trim($_POST['title']));
-	$author = sanitize(trim($_POST['author']));
-	$label = sanitize(trim($_POST['label']));
-	$bookCopies = sanitize(trim($_POST['bookCopies']));
-	$publisher = sanitize(trim($_POST['publisher']));
-	$select = sanitize(trim($_POST['select']));
-	$category = sanitize(trim($_POST['category']));
-	$call = sanitize(trim($_POST['call']));
 
-	$sql_update = "UPDATE books SET 
-        bookTitle = '$title',
-        author = '$author',
-        ISBN = '$label',
-        bookCopies = '$bookCopies',
-        publisherName = '$publisher',
-        available = '$select',
-        categories = '$category',
-        callNumber = '$call'
-        WHERE BookId = $id";
+	// Prepare the update query with placeholders
+	$sql_update = "UPDATE books SET bookTitle = ? WHERE BookId = ?";
 
-	$query_update = mysqli_query($conn, $sql_update);
+	// Create a prepared statement
+	$stmt = mysqli_prepare($conn, $sql_update);
 
-	if ($query_update) {
-		$error = true; // You can use this to display a success message.
+	// Bind parameters to the prepared statement
+	mysqli_stmt_bind_param($stmt, "si", $title, $bookId);
+
+	// Execute the prepared statement
+	if (mysqli_stmt_execute($stmt)) {
+		$updated = true;
+	} else {
+		echo "Error updating record: " . mysqli_error($conn); // Display the error message
 	}
+
+	// Close the prepared statement
+	mysqli_stmt_close($stmt);
 }
+
+// if (isset($_POST['update'])) {
+// 	$id = sanitize(trim($_POST['id']));
+// 	$title = sanitize(trim($_POST['title']));
+// 	$author = sanitize(trim($_POST['author']));
+// 	$label = sanitize(trim($_POST['label']));
+// 	$bookCopies = sanitize(trim($_POST['bookCopies']));
+// 	$publisher = sanitize(trim($_POST['publisher']));
+// 	$select = sanitize(trim($_POST['select']));
+// 	$category = sanitize(trim($_POST['category']));
+// 	$call = sanitize(trim($_POST['call']));
+
+// 	$sql_update = "UPDATE books SET 
+//         bookTitle = '$title',
+//         author = '$author',
+//         ISBN = '$label',
+//         bookCopies = '$bookCopies',
+//         publisherName = '$publisher',
+//         available = '$select',
+//         categories = '$category',
+//         callNumber = '$call'
+//         WHERE BookId = $id";
+
+// 	$query_update = mysqli_query($conn, $sql_update);
+
+// 	if ($query_update) {
+// 		$error = true; // You can use this to display a success message.
+// 	}
+// }
 
 ?>
 
@@ -72,6 +98,16 @@ if (isset($_POST['update'])) {
 		<div class="" id="panel-default">
 			<!-- Default panel contents -->
 			<div class="panel-heading">
+				<?php
+				if ($updated) {
+				?>
+					<div class="alert alert-success alert-dismissable">
+						<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+						<strong>Record Updated Successfully!</strong>
+					</div>
+				<?php
+				}
+				?>
 				<?php
 				if (isset($error) === true) {
 				?>
@@ -146,6 +182,18 @@ if (isset($_POST['update'])) {
 								<input type='hidden' value="<?php echo $row['bookId']; ?>" name='id'>
 								<td><button name='del' type='submit' value='Delete' class='btn btn-warning' onclick='return Delete()'>DELETE</button></td>
 							</form>
+
+							<form method="post" action="bookstable.php">
+
+								<input type="hidden" name="bookId" value="<?php echo $row['bookId']; ?>">
+
+								<td><input type="text" name="title" value="<?php echo $row['bookTitle']; ?>"></td>
+
+								<td><input type="text" name="author" value="<?php echo $row['author']; ?>"></td>
+
+								<td><button type="submit" name="update">Update</button></td>
+
+							</form>
 						</tbody>
 					<?php  }
 				} else {
@@ -167,6 +215,17 @@ if (isset($_POST['update'])) {
 							<form method='post' action='bookstable.php'>
 								<input type='hidden' value="<?php echo $row['bookId']; ?>" name='id'>
 								<td><button name='del' type='submit' value='Delete' class='btn btn-warning' onclick='return Delete()'>DELETE</button></td>
+							</form>
+							<form method="post" action="bookstable.php">
+
+								<input type="hidden" name="bookId" value="<?php echo $row['bookId']; ?>">
+
+								<td><input type="text" name="title" value="<?php echo $row['bookTitle']; ?>"></td>
+
+								<td><input type="text" name="author" value="<?php echo $row['author']; ?>"></td>
+
+								<td><button type="submit" name="update">Update</button></td>
+
 							</form>
 						</tbody>
 
