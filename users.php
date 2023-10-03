@@ -3,22 +3,64 @@ require 'includes/snippet.php';
 require 'includes/db-inc.php';
 include "includes/header.php";
 
+// Function to update a user
+function updateUser($conn)
+{
+	$adminId = sanitize(trim($_POST['adminId']));
+	$adminName = sanitize(trim($_POST['adminName']));
+	$password = sanitize(trim($_POST['password']));
+	$username = sanitize(trim($_POST['username']));
+	$email = sanitize(trim($_POST['email']));
+
+	// Prepare the update query with placeholders
+	$sql_update = "UPDATE admin SET 
+        adminName = ?,
+        password = ?,
+        username = ?,
+        email = ?
+        WHERE adminId = ?";
+
+	// Create a prepared statement
+	$stmt = mysqli_prepare($conn, $sql_update);
+
+	// Bind parameters to the prepared statement
+	mysqli_stmt_bind_param($stmt, "ssssi", $adminName, $password, $username, $email, $adminId);
+
+	// Execute the prepared statement
+	if (mysqli_stmt_execute($stmt)) {
+		return true; // Updated successfully
+	} else {
+		return false; // Error updating
+	}
+}
+
 if (isset($_POST['del'])) {
-
 	$id = sanitize(trim($_POST['id']));
-	// echo $id;
-
-	$sql_del = "DELETE from admin where adminId = $id";
+	$sql_del = "DELETE FROM admin WHERE adminId = $id";
 	$error = false;
-
 	$result = mysqli_query($conn, $sql_del);
 	if ($result) {
 		$error = true;
 	}
 }
 
+$updated = false;
 
+if (isset($_POST['update'])) {
+	// Call the updateUser function to handle the update
+	if (updateUser($conn)) {
+		$updated = true;
+	} else {
+		echo "Error updating record: " . mysqli_error($conn);
+	}
+}
 ?>
+
+<!-- Rest of your HTML code remains the same -->
+
+
+
+
 
 <html lang="en">
 
@@ -46,12 +88,26 @@ if (isset($_POST['del'])) {
 		<div class="">
 			<!-- Default panel contents -->
 			<div class="panel-heading">
-				<?php if (isset($error) === true) { ?>
+				<?php
+				if ($updated) {
+				?>
 					<div class="alert alert-success alert-dismissable">
 						<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-						<strong>Record Deleted Successfully!</strong>
+						<strong>Record Updated Successfully!</strong>
 					</div>
-				<?php } ?>
+				<?php
+				}
+				?>
+				<?php
+				if (isset($error) === true) {
+				?>
+					<div class="alert alert-success alert-dismissable">
+						<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+						<strong><?php echo isset($_POST['del']) ? 'Record Deleted Successfully!' : 'Record Updated Successfully!'; ?></strong>
+					</div>
+				<?php
+				}
+				?>
 				<div class="row">
 					<a href="adduser.php"><button class="btn btn-success col-lg-3 col-md-4 col-sm-11 col-xs-11 button" style="margin-left: 15px;margin-bottom: 5px"><span class="glyphicon glyphicon-plus-sign"></span> Add User</button></a>
 					<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 pull-right">
@@ -77,9 +133,9 @@ if (isset($_POST['del'])) {
 						<th>username</th>
 						<th>email</th>
 						<th>Delete</th>
+						<th>Edit</th>
 					</tr>
 				</thead>
-
 				<?php
 				$sql = "SELECT * from admin";
 
@@ -96,6 +152,48 @@ if (isset($_POST['del'])) {
 							<input type='hidden' value="<?php echo $row['adminId']; ?>" name='id'>
 							<td><button name='del' type='submit' value='Delete' class='btn btn-warning' onclick='return Delete()'>DELETE</button></td>
 						</form>
+						<td> <button class="btn btn-primary" data-toggle="modal" data-target="#editModal<?php echo $row['adminId']; ?>">Edit</button></td>
+						<div class="modal fade" id="editModal<?php echo $row['adminId']; ?>" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
+							<div class="modal-dialog" role="document">
+								<div class="modal-content">
+									<div class="modal-header">
+										<h5 class="modal-title" id="editModalLabel">Edit Book Information</h5>
+										<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+											<span aria-hidden="true">&times;</span>
+										</button>
+									</div>
+									<div class="modal-body">
+										<!-- Update form for this book -->
+										<!-- Update form for this book -->
+										<form method="post" action="users.php">
+											<input type="hidden" name="adminId" value="<?php echo $row['adminId']; ?>">
+
+											<div class="form-group">
+												<label for="adminName">Admin Name</label>
+												<input type="text" class="form-control" name="adminName" value="<?php echo $row['adminName']; ?>">
+											</div>
+
+											<div class="form-group">
+												<label for="password">Password</label>
+												<input type="text" class="form-control" name="password" value="<?php echo $row['password']; ?>">
+											</div>
+
+											<div class="form-group">
+												<label for="username">Username</label>
+												<input type="text" class="form-control" name="username" value="<?php echo $row['username']; ?>">
+											</div>
+
+											<div class="form-group">
+												<label for="email">Email</label>
+												<input type="text" class="form-control" name="email" value="<?php echo $row['email']; ?>">
+											</div>
+											<button type="submit" name="update" class="btn btn-primary">Update</button>
+										</form>
+
+									</div>
+								</div>
+							</div>
+						</div>
 					</tbody>
 
 				<?php } ?>

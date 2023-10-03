@@ -39,7 +39,7 @@ if(isset($_POST['submit'])){
 
 
 <div class="container">
-    <?php include "includes/nav2.php"; ?>
+    <?php include "includes/nav.php"; ?>
 	<div class="container  col-lg-9 col-md-11 col-sm-12 col-xs-12 col-lg-offset-2 col-md-offset-1 col-sm-offset-0 col-xs-offset-0  " style="margin-top: 30px">
 		<div class="jumbotron login col-lg-10 col-md-11 col-sm-12 col-xs-12">
 			

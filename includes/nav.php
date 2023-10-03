@@ -80,6 +80,41 @@ if (isset($_SESSION['student-name'])) {
                             <li><a href="borrowedbooks.php">Borrowed books</a></li>
                             <li><a href="fines.php">Fines</a></li> -->
                         <?php } ?>
+                        <?php if (isset($student)) { ?>
+                            <li>
+                                <button class="nav-link dropdown-btn" data-dropdown="dropdown-admin" aria-haspopup="true" aria-expanded="false" aria-label="discover" style="font-size: 20px;">
+                                    Akun
+                                    <i class="bx bx-chevron-down" aria-hidden="true"></i>
+                                </button>
+                                <div id="dropdown-admin" class="dropdown">
+                                    <ul role="menu" style="font-size: 13px;">
+                                        <li>
+                                            <span class="dropdown-link-title">Sub Menu</span>
+                                        </li>
+                                        <li role="menuitem">
+                                            <a class="dropdown-link" href="bookstable.php">Profile Siswa</a>
+                                        </li>
+                                        <li role="menuitem">
+                                            <a class="dropdown-link" href="users.php">Profile Guru</a>
+                                        </li>
+                                    </ul>
+                                    <ul role="menu" style="font-size: 13px;">
+                                        <li>
+                                            <span class="dropdown-link-title">Informasi Akun</span>
+                                        </li>
+                                        <li role="menuitem">
+                                            <a class="dropdown-link" href="fine-student.php">Buku Yang Terpinjam</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <!-- <li c1lass="active"><a href="admin.php">Home</a></li>
+                            <li><a href="bookstable.php">Books</a></li>
+                            <li><a href="users.php">Admins</a></li>
+                            <li><a href="viewstudents.php">Students</a></li>
+                            <li><a href="borrowedbooks.php">Borrowed books</a></li>
+                            <li><a href="fines.php">Fines</a></li> -->
+                        <?php } ?>
                         <li>
                             <button class="nav-link dropdown-btn" data-dropdown="dropdown2" aria-haspopup="true" aria-expanded="false" aria-label="discover" style="font-size: 20px;">
                                 Profil
@@ -112,7 +147,7 @@ if (isset($_SESSION['student-name'])) {
                         </li>
                         <li>
                             <button class="nav-link dropdown-btn" data-dropdown="dropdown1" aria-haspopup="true" aria-expanded="false" aria-label="browse" style="font-size: 20px;">
-                                Kategori
+                                Pinjam Buku
                                 <i class="bx bx-chevron-down" aria-hidden="true"></i>
                             </button>
                             <div id="dropdown1" class="dropdown">
@@ -121,17 +156,17 @@ if (isset($_SESSION['student-name'])) {
                                         <span class="dropdown-link-title">Kategori Buku</span>
                                     </li>
                                     <li role="menuitem">
-                                        <a class="dropdown-link" href="#">
+                                        <a class="dropdown-link" href="borrow-student.php">
                                             Buku Pelarajan
                                         </a>
                                     </li>
                                     <li role="menuitem">
-                                        <a class="dropdown-link" href="#">
+                                        <a class="dropdown-link" href="borrow-student.php">
                                             Buku Fiksi
                                         </a>
                                     </li>
                                     <li role="menuitem">
-                                        <a class="dropdown-link" href="#">
+                                        <a class="dropdown-link" href="borrow-student.php">
                                             Buku Biografi
                                         </a>
                                     </li>
@@ -146,7 +181,7 @@ if (isset($_SESSION['student-name'])) {
                             <div id="dropdown0" class="dropdown">
                                 <ul role="menu" style="font-size: 13px;">
                                     <li class="dropdown-title">
-                                        <span class="dropdown-link-title">Kategori Buku</span>
+                                        <span class="dropdown-link-title">Perpustakaan</span>
                                     </li>
                                     <li role="menuitem">
                                         <a class="dropdown-link" href="../Sea-Books-LSP/gallery.html">

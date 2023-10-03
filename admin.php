@@ -135,7 +135,7 @@ if (isset($_POST['del'])) {
 
 				<?php
 
-				$sql2 = "SELECT * from news";
+				$sql2 = "SELECT 	* from news";
 
 				$query2 = mysqli_query($conn, $sql2);
 				$counter = 1;

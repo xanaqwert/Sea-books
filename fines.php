@@ -6,7 +6,7 @@ include "includes/header.php";
 
 if (isset($_POST['del'])) {
 	$id = trim($_POST['del-btn']);
-	$msg = "Paid";
+	$msg = "Terbayar/Dikembalikan";
 	$sql = "UPDATE borrow set `fine` = '$msg' where borrowId = '$id'";
 	$query = mysqli_query($conn, $sql);
 	$error = false;
@@ -66,13 +66,13 @@ if (isset($_POST['del'])) {
 				<thead>
 					<tr>
 						<th>ID</th>
-						<th>Member Name</th>
-						<th>Matric Number</th>
-						<th>Book Name</th>
-						<th>Borrow date</th>
-						<th>Return Date</th>
-						<th>Overdue Charges</th>
-						<th>ACTION</th>
+						<th>Nama Anggota</th>
+						<th>Nomor Metric</th>
+						<th>Nama Buku</th>
+						<th>Tanggal Peminjaman</th>
+						<th>Tanggal Pengembaliann</th>
+						<th>Denda Keterlambatan</th>
+						<th>Dikembalikan</th>
 					</tr>
 				</thead>
 
@@ -90,11 +90,11 @@ if (isset($_POST['del'])) {
 							<td><?php echo $row['bookName']; ?></td>
 							<td><?php echo $row['borrowDate']; ?></td>
 							<td><?php echo $row['returnDate']; ?></td>
-							<td><?php echo $row['fine']; ?></td>
+							<td><?php echo $row['fine']; ?> (Rupiah)</td>
 							<td>
 								<form action="fines.php" method="post">
 									<input type="hidden" value="<?php echo $row['borrowId']; ?>" name="del-btn">
-									<button class="btn btn-warning" name="del">STOP COUNT</button>
+									<button class="btn btn-warning" name="del">Selesai</button>
 								</form>
 							</td>
 						</tr>

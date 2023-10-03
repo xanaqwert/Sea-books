@@ -14,3 +14,7 @@
 .card-text {
     color: black;
 }
+
+.container {
+	z-index: -1;
+}
