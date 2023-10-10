@@ -85,6 +85,7 @@ if (isset($_POST['submit'])) {
 						<th>Username</th>
 						<th>Password</th>
 						<th>Hapus</th>
+						<th>Edit</th>
 					</tr>
 				</thead>
 				<?php
@@ -111,6 +112,74 @@ if (isset($_POST['submit'])) {
 									<button name="submit" class="btn btn-warning">DELETE</button>
 								</form>
 							</td>
+							<td>
+								<button class="btn btn-primary" data-toggle="modal" data-target="#editModal<?php echo $row['studentId']; ?>">Edit</button>
+							</td>
+							<?php
+							$sql = "SELECT * FROM students";
+							$query = mysqli_query($conn, $sql);
+
+							while ($row = mysqli_fetch_assoc($query)) {
+							?>
+								<div class="modal fade" id="editModal<?php echo $row['studentId']; ?>" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
+									<div class="modal-dialog" role="document">
+										<div class="modal-content">
+											<div class="modal-header">
+												<h5 class="modal-title" id="editModalLabel">Edit Student Information</h5>
+												<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+													<span aria-hidden="true">&times;</span>
+												</button>
+											</div>
+											<div class="modal-body">
+												<!-- Update form for this student -->
+												<form method="post" action="updatestudent.php">
+													<input type="hidden" name="studentId" value="<?php echo $row['studentId']; ?>">
+
+													<div class="form-group">
+														<label for="name">Nama</label>
+														<input type="text" class="form-control" name="name" value="<?php echo $row['name']; ?>">
+													</div>
+
+													<div class="form-group">
+														<label for="matric_no">ID Anggota</label>
+														<input type="text" class="form-control" name="matric_no" value="<?php echo $row['matric_no']; ?>">
+													</div>
+
+													<div class="form-group">
+														<label for="email">email</label>
+														<input type="text" class="form-control" name="email" value="<?php echo $row['email']; ?>">
+													</div>
+
+													<div class="form-group">
+														<label for="dept">Jurusan</label>
+														<input type="text" class="form-control" name="dept" value="<?php echo $row['dept']; ?>">
+													</div>
+
+													<div class="form-group">
+														<label for="phoneNumber">phoneNumber</label>
+														<input type="text" class="form-control" name="phoneNumber" value="<?php echo $row['phoneNumber']; ?>">
+													</div>
+
+													<div class="form-group">
+														<label for="username">username</label>
+														<input type="text" class="form-control" name="username" value="<?php echo $row['username']; ?>">
+													</div>
+
+													<div class="form-group">
+														<label for="password">password</label>
+														<input type="text" class="form-control" name="password" value="<?php echo $row['password']; ?>">
+													</div>
+
+													<!-- Add other fields like matric_no, email, dept, phoneNumber, username, and password here -->
+
+													<button type="submit" name="update" class="btn btn-primary">Update</button>
+												</form>
+											</div>
+										</div>
+									</div>
+								</div>
+							<?php } ?>
+
 						</tr>
 
 					</tbody>

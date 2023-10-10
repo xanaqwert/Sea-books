@@ -78,7 +78,7 @@ if (isset($_POST['update'])) {
 		<!-- info alert -->
 		<div class="alert alert-warning col-lg-7 col-md-12 col-sm-12 col-xs-12 col-lg-offset-2 col-md-offset-0 col-sm-offset-1 col-xs-offset-0" style="margin-top:70px">
 
-			<h4 class="center-block"><span class="admin_name">Users List</span> </h4>
+			<h4 class="center-block"><span class="admin_name">Admin List</span> </h4>
 		</div>
 
 

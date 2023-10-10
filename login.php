@@ -1,5 +1,6 @@
 <?php
 session_start();
+error_reporting(E_ALL ^ E_NOTICE);
 
 // if ((isset($_SESSION['auth']) && $_SESSION['auth'] === true)) {
 // 	header("Location: admin.php");
@@ -70,8 +71,9 @@ if (isset($_POST['submit'])) {
 </head>
 
 <body>
+	<?php include "includes/nav.php"; ?>
 	<!-- header -->
-	<header id="nav-menu" aria-label="navigation bar">
+	<!-- <header id="nav-menu" aria-label="navigation bar">
 		<div class="container-navbar">
 			<div class="nav-start">
 				<a class="logo" href="/">
@@ -189,7 +191,7 @@ if (isset($_POST['submit'])) {
 				</button>
 			</div>
 		</div>
-	</header>
+	</header> -->
 
 	<div class="container" style="margin-top: 10rem;">
 		<div class="col-lg-8 col-md-10 col-sm-12 col-xs-12 col-lg-offset-2 col-md-offset-1">

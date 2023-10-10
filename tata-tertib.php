@@ -1,3 +1,10 @@
+<?php
+
+require 'includes/db-inc.php';
+session_start();
+error_reporting(E_ALL ^ E_NOTICE);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,6 +20,7 @@
 </head>
 
 <body>
+    <?php include "includes/nav.php"; ?>
     <!-- <div class="navbar-container">
         <nav class="navbar">
             <ul>

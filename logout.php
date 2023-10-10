@@ -1,7 +1,9 @@
-<?php 
+<?php
 session_start();
+
+// Destroy the session
 session_destroy();
-// echo"You'll be Re-directed shortly";
-header("Location: index.php");
+
+// Redirect the user to the login page
+header("Location: login.php");
 exit();
-?>

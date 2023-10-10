@@ -97,7 +97,8 @@ if (isset($_POST['del'])) {
 </head>
 
 <body>
-	<header id="nav-menu" aria-label="navigation bar">
+	<?php include "includes/nav.php"; ?>
+	<!-- <header id="nav-menu" aria-label="navigation bar">
 		<div class="container-navbar">
 			<div class="nav-start">
 				<a class="logo" href="/">
@@ -215,7 +216,7 @@ if (isset($_POST['del'])) {
 				</button>
 			</div>
 		</div>
-	</header>
+	</header> -->
 
 	<div class="container-fluid slide">
 		<h4 class="center-block" style="color:#282828">Selamat Datang Di <span style="color:#5297f7;font-size:45px;font-weight:405;">Sea-Books</span></h4>

@@ -3,7 +3,7 @@
 require 'includes/db-inc.php';
 session_start();
 $student_name = $_SESSION['student-username'];
-
+error_reporting(E_ALL ^ E_NOTICE);
 ?>
 
 <!DOCTYPE html>

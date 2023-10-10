@@ -42,10 +42,14 @@ include 'includes/header.php';
 
 		<table class="table table-bordered">
 			<tr>
-				<th>ID</th>
-				<th>BOOK</th>
-				<th>AVAILABLE</th>
-				<th>BORROW</th>
+				<th>Nomor</th>
+				<th>Judul Buku</th>
+				<th>Penulis</th>
+				<th>Buku Tersisa</th>
+				<th>Nama Penerbit</th>
+				<th>Tersedia</th>
+				<th>Kategori</th>
+				<th>Pinjam</th>
 			</tr>
 			</thead>
 			<?php
@@ -62,11 +66,14 @@ include 'includes/header.php';
 					<tr>
 						<td><?php echo $counter++; ?></td>
 						<td><?php echo $row['bookTitle']; ?></td>
+						<td><?php echo $row['author']; ?></td>
+						<td><?php echo $row['bookCopies']; ?></td>
+						<td><?php echo $row['publisherName']; ?></td>
 						<td><?php echo $row['available']; ?></td>
+						<td><?php echo $row['categories']; ?></td>
 
 
-						<td><a href="lend-student.php?bid=<?php echo $row['bookId'] ?>" id="show" class="show-in"><button class="btn btn-success">Borrow Now
-
+						<td><a href="lend-student.php?bid=<?php echo $row['bookId'] ?>" id="show" class="show-in"><button class="btn btn-success" style="font-size: 12px; margin-right:-3rem">Pinjam Sekarang
 								</button>
 								<input type="hidden" class="book-id" value="<?php echo $row['bookId']; ?>">
 								<input type="hidden" class="book-name" value="<?php echo $row['bookTitle']; ?>">

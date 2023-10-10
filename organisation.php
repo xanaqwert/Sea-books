@@ -1,3 +1,14 @@
+<?php
+
+require 'includes/snippet.php';
+require 'includes/db-inc.php';
+include "includes/header.php";
+session_start();
+error_reporting(E_ALL ^ E_NOTICE);
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,8 +23,9 @@
 </head>
 
 <body>
+    <?php include "includes/nav.php"; ?>
     <!-- header -->
-    <header id="nav-menu" aria-label="navigation bar">
+    <!-- <header id="nav-menu" aria-label="navigation bar">
         <div class="container-navbar">
             <div class="nav-start">
                 <a class="logo" href="/">
@@ -131,7 +143,7 @@
                 </button>
             </div>
         </div>
-    </header>
+    </header> -->
 
     <main>
         <div class="container">
