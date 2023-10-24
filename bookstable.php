@@ -54,6 +54,50 @@ if (isset($_POST['update'])) {
 	// Close the prepared statement
 	mysqli_stmt_close($stmt);
 }
+
+if (isset($_POST['update_cover'])) {
+	// Get book ID for which you want to update the cover
+	$bookId = sanitize(trim($_POST['id']));
+
+	// Check if a cover image file was uploaded
+	if (isset($_FILES['cover_update']) && $_FILES['cover_update']['error'] == UPLOAD_ERR_OK) {
+		$cover_tmp_name = $_FILES['cover_update']['tmp_name'];
+		$cover_name = $_FILES['cover_update']['name'];
+		$cover_extension = pathinfo($cover_name, PATHINFO_EXTENSION);
+
+		// Define a target directory for cover image uploads
+		$cover_destination = "covers/" . uniqid() . '_' . $cover_name;
+
+		// Create a unique file name for the uploaded cover image
+		$cover_file = $cover_destination . uniqid() . '_' . $cover_name;
+
+		// Move the uploaded cover image to the target directory
+		if (move_uploaded_file($cover_tmp_name, $cover_file)) {
+			// Update the 'cover' column in the database
+			$sql_update_cover = "UPDATE books SET cover = ? WHERE BookId = ?";
+			$stmt_cover = mysqli_prepare($conn, $sql_update_cover);
+			mysqli_stmt_bind_param($stmt_cover, "si", $cover_file, $bookId);
+
+			if (mysqli_stmt_execute($stmt_cover)) {
+				// Cover image updated successfully
+				// You may also want to delete the old cover image if necessary
+				// Display a success message
+				echo "Cover image updated successfully.";
+			} else {
+				// Handle cover image update error
+				echo "Error updating cover image: " . mysqli_error($conn);
+			}
+
+			// Close the cover image prepared statement
+			mysqli_stmt_close($stmt_cover);
+		} else {
+			// Handle cover image upload error
+			echo "Error uploading cover image.";
+		}
+	}
+}
+
+
 ?>
 
 <!DOCTYPE html>
@@ -118,7 +162,9 @@ if (isset($_POST['update'])) {
 						<th>Tersedia</th>
 						<th>Kategori</th>
 						<th>ID Buku</th>
+						<th>Cover</th>
 						<th>Hapus</th>
+						<th>Edit</th>
 						<th>Edit</th>
 					</tr>
 				</thead>
@@ -131,6 +177,7 @@ if (isset($_POST['update'])) {
 					$query2 = mysqli_query($conn, $sql2);
 					$counter = 1;
 					while ($row = mysqli_fetch_array($query2)) {
+						$cover_url = !empty($row['cover']) ? $row['cover'] : ''; // Check if cover image exists in the database
 				?>
 						<tbody>
 							<td><?php echo $counter++; ?></td>
@@ -142,7 +189,14 @@ if (isset($_POST['update'])) {
 							<td><?php echo $row['available']; ?></td>
 							<td><?php echo $row['categories']; ?></td>
 							<td><?php echo $row['callNumber']; ?></td>
-							<form method='post' action='bookstable.php'>
+							<td>
+								<?php if (!empty($cover_url)) : ?>
+									<img src="<?php echo $cover_url; ?>" alt="Cover Image" style="max-width: 100px;">
+								<?php else : ?>
+									No Cover Image
+								<?php endif; ?>
+							</td>
+							<form method='post' action='bookstable.php' enctype="multipart/form-data">
 								<input type='hidden' value="<?php echo $row['bookId']; ?>" name='id'>
 								<td><button name='del' type='submit' value='Delete' class='btn btn-warning' onclick='return Delete()'>DELETE</button></td>
 							</form>
@@ -204,8 +258,23 @@ if (isset($_POST['update'])) {
 													<input type="text" class="form-control" name="callNumber" value="<?php echo $row['callNumber']; ?>">
 												</div>
 
+												<!-- <div class="form-group">
+													<label for="cover">Cover Image</label>
+													<input type="file" class="form-control" name="cover">
+												</div> -->
+
 												<button type="submit" name="update" class="btn btn-primary">Update</button>
 											</form>
+											<td>
+												<form method="post" action="bookstable.php" enctype="multipart/form-data">
+													<input type='hidden' value="<?php echo $row['bookId']; ?>" name='id'>
+													<div class="form-group">
+														<label for="cover">Cover Image</label>
+														<input type="file" class="form-control" name="cover_update">
+													</div>
+													<button name='update_cover' type='submit' value='Update Cover' class='btn btn-primary'>Update Cover</button>
+												</form>
+											</td>
 										</div>
 									</div>
 								</div>
